@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: %i[index show edit update destroy]
+  
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
   end
@@ -21,11 +23,6 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザの作成に失敗しました'
       render :new
     end
-
-    private
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
   end
 
   def edit
@@ -36,5 +33,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
