@@ -1,3 +1,17 @@
-.background{
-  background: image-url('topimage.jpg')
+.jumbotron{
+  background: image-url('topimage.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFFFEE;
+}
+
+#index{
+    background: image-url('portfolio_topimage.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #FFFFEE;
 }

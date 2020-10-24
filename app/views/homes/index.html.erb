@@ -1,16 +1,30 @@
-<body class="background">
 
 <% if logged_in? %>
+<body id="index">
 <p>ログインユーザ: <%= current_user.name %></p>
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to My Portfolio</h1>
-      <h3>thank you for watching this page.</h3>
-      <h3>You can publish your work here.</h3>
-      <%= link_to 'SignUp Now!',signup_path, class: 'btn btn-lg btn-primary'%>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @post, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block'%>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>
-<% end %>
+  </body>
+<% else %>
 
-</body>
+    <div class="center jumbotron">
+      <div class="text-center">
+        <h1>Welcome to My Portfolio</h1>
+        <h3>thank you for watching this page.</h3>
+        <h3>This application is plagiarism.</h3>
+        <%= link_to 'SignUp Now!',signup_path, class: 'btn btn-lg btn-primary'%>
+      </div>
+    </div>
+
+<% end %>
