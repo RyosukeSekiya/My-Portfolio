@@ -12,11 +12,15 @@
 }
 
 #users{
-  background: image-url('portfolio_users.jpg');
+  background: image-url('portfolio_users.jpeg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #FFFFEE;
+}
+
+.user_name{
+  color: #000044;
 }
 
